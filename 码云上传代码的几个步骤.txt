@@ -1,0 +1,106 @@
+码云gitee上传代码
+
+
+https://www.cnblogs.com/flish/p/9129964.html
+
+
+1. 生成sshkey：
+	$ ssh-keygen -t rsa -C "youremail@youremail.com"  
+	查看 密钥 目录命令  ls -al
+		进入到。ssh  cd .ssh/
+     		查看密钥 ls  (会看到。pub这就是公密钥)
+		打开看一下公钥内容： cat id_rsa.pub
+
+	# Generating public/private rsa key pair...
+	# 三次回车即可生成 ssh key
+2.查看你的 public key，
+
+	$ cat ~/.ssh/id_rsa.pub
+	# ssh-rsa AAAAB3NzaC1yc2E... youremail@youremail.com
+3.添加后，在终端中输入
+
+	#Gitee
+	$ ssh -T git@gitee.com
+
+	#GitHub
+	$ ssh -T git@github.com
+4.接下来还需要简单的设置一些东西
+	$ git config --global user.name "yourname"
+	$ git config --global user.email "youremail@youremail.com"
+5.克隆
+	#Gitee
+	$ git clone https://gitee.com/yourname/repository
+
+	#Github
+	$ git clone https://github.com/yourname/repository.git
+
+	#yourname  您在码云或github注册的用户名
+	#repository  您创建的远程仓库名称
+6.本地初始化
+	#Gitee
+	$ cd d:/test //首先在文件系统中创建一个项目文件夹，然后在Git中 cd 到这个工程目录
+	$ git init //初始化本地项目
+	$ git remote add origin <远程仓库地址> //绑定远程仓库
+	#注:地址形式为 https://gitee.com/yourname/test.git 或 	git@gitee.com:yourname/test.git
+
+	#Github
+	$ cd d:/test
+	$ git init
+	$ git remote add origin <远程仓库地址>
+	注：地址形式为 https://github.com/yourname/test.git
+7.在本地进行编辑后，更新到远程仓库
+	git add .    //指定更新内容    . 表示全部更新，test.txt 表示更新指定文件
+	git commit -m "一些注释说明"     //添加更新说明
+	git push origin master            //执行更新操作
+
+
+
+1）远程上有仓库，本地上有要向远程仓库上传的文件夹
+2）	git init	新建文件夹中初始化 	
+	git remote add origin + 复制的仓库地址  连接到远程仓库
+	git pull origin master 拉取代码
+	git add .		单文件上传需要加引号
+	git commit -m ""
+	git push origin master
+
+
+1、先将github的账户和本地git bash 联系
+				git config --global user.name "名字"
+				git config --global user.email "邮箱"
+
+				2、建立暂存处  初始化 (.git 存储的是当前目录的版本信息)
+					git init
+
+				3、工作区 => 暂存区
+					git add *
+					git commit -m "这次提交的描述"
+
+					git status  查看当前提交的状态
+
+					git diff    查看工作区和暂存区，代码的区别
+
+					git log     查看已经提交的版本信息
+
+					git reset --hard 版本号
+					git checkout 文件名  从暂存区会工作区的文件
+
+				4、暂存区 => 远程仓库
+					<1>github 账户下建立远程仓库
+					<2>生成一个ssh的密匙
+					git remote add origin https://github.com/BullFei/QD1903.git
+					git push -u origin master
+					<3>中途可能会要求输入用户名和密码
+			*/
+
+			/*
+				git 的高级用法
+					master
+
+					git branch 分支的名字  创建新分支
+					git checkout
+					git merge
+					git branch -d (branchname)
+
+					git clone 项目地址  将远程仓库的代码克隆到本地
+					git pull  同步远程仓库的代码到本地
+					git push  推送到远程仓库
