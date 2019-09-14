@@ -63,7 +63,7 @@ https://www.cnblogs.com/flish/p/9129964.html
 	git commit -m ""
 	git push origin master
 
-
+https://blog.csdn.net/yan263364/article/details/84402595  keepAlive
 1、先将github的账户和本地git bash 联系
 				git config --global user.name "名字"
 				git config --global user.email "邮箱"
