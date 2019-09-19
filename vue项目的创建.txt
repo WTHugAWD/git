@@ -1,0 +1,36 @@
+	1,cnpm i -g @vue/cli    安装基于webpack 的脚手架工具vue/cli
+	or 
+	  yarn global add @vue/cli
+	2,cnpm i webpack -g 
+	(安装yarn) cnpm i yarn -g
+	3 vue -V 检测安装
+	4 vue create hello
+ 
+
+
+		Vue.config.keyCode.f2 =113   //定义键盘码
+	<input type="text" @keyUp.f2 = "up">
+methods:{
+	up(){
+	console.log(e.target.value)
+}
+}
+
+
+		<input type="text" ref="abc"> 
+           <button @click="clickme">点击</button>
+           <button @click = "getdata">getdata</button>
+
+	 methods:{
+                clickme(){
+                    this.message = this.$refs.abc.value
+                    console.log(this.message)
+                },
+                getdata(){
+                    var str = this.message.indexOf("/")
+                    var str1 = this.message.substring(0,str)
+                    var str2 = this.message.substring(str+1)
+                   console.log(str1,str2)
+                    return str1,str2
+                }
+            }
